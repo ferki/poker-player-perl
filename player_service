@@ -16,6 +16,8 @@ my $daemon = HTTP::Daemon->new(
     LocalPort => $port,
 ) || die "Can't start daemon: $!";
 
+$SIG{INT} = sub { die 'Interrupted' };
+
 my $player = Player->new;
 
 while ( my $client = $daemon->accept ) {
