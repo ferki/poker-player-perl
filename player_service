@@ -34,7 +34,7 @@ while ( my $client = $daemon->accept ) {
         }
         else {
             $response->code(HTTP_NOT_IMPLEMENTED);
-            $response->content("Unimplemented action");
+            $response->content('Unimplemented action');
         }
 
         $client->send_response($response);
